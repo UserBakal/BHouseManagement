@@ -1,7 +1,42 @@
-﻿
+﻿@model IEnumerable<housemanagement1.users>
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if(!String.IsNullOrEmpty(TempData["Msg"] as String))
+{
+    <div class="alert alert-success">@TempData["Msg"]</div>
+}
+<table class="table">
+    <tr>
+        <th>Seq #</th>
+        <th>
+            Username
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @{int i = 1;}
+@foreach (var item in Model) {
+    <tr>
+        <td>@i</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+    i++;
+}
+
+</table>
