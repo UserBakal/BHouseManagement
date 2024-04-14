@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aldra\\OneDrive\\Documents\\GitHub\\BHouseManagement\\housemanagement1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1BC649E4-9613-4602-8D58-8C84145C0FD8}|housemanagement1\\housemanagement1.csproj|c:\\users\\aldra\\onedrive\\documents\\github\\bhousemanagement\\housemanagement1\\housemanagement1\\repository\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BC649E4-9613-4602-8D58-8C84145C0FD8}|housemanagement1\\housemanagement1.csproj|solutionrelative:housemanagement1\\repository\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BC649E4-9613-4602-8D58-8C84145C0FD8}|housemanagement1\\housemanagement1.csproj|c:\\users\\aldra\\onedrive\\documents\\github\\bhousemanagement\\housemanagement1\\housemanagement1\\contracts\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BC649E4-9613-4602-8D58-8C84145C0FD8}|housemanagement1\\housemanagement1.csproj|solutionrelative:housemanagement1\\contracts\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\aldra\\OneDrive\\Documents\\GitHub\\BHouseManagement\\housemanagement1\\housemanagement1\\Repository\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "housemanagement1\\Repository\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\aldra\\OneDrive\\Documents\\GitHub\\BHouseManagement\\housemanagement1\\housemanagement1\\Repository\\BaseRepository.cs",
+              "RelativeToolTip": "housemanagement1\\Repository\\BaseRepository.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAiwEIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:20:31.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IBaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\aldra\\OneDrive\\Documents\\GitHub\\BHouseManagement\\housemanagement1\\housemanagement1\\Contracts\\IBaseRepository.cs",
+              "RelativeDocumentMoniker": "housemanagement1\\Contracts\\IBaseRepository.cs",
+              "ToolTip": "C:\\Users\\aldra\\OneDrive\\Documents\\GitHub\\BHouseManagement\\housemanagement1\\housemanagement1\\Contracts\\IBaseRepository.cs",
+              "RelativeToolTip": "housemanagement1\\Contracts\\IBaseRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:11:54.922Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

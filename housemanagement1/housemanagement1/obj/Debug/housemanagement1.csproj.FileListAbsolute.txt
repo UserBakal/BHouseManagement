@@ -48,3 +48,7 @@ c:\users\janvel\documents\visual studio 2015\Projects\housemanagement1\housemana
 c:\users\janvel\documents\visual studio 2015\Projects\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csprojResolveAssemblyReference.cache
 c:\users\janvel\documents\visual studio 2015\Projects\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
 c:\users\janvel\documents\visual studio 2015\Projects\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb
+C:\Users\aldra\OneDrive\Documents\GitHub\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csproj.AssemblyReference.cache
+C:\Users\aldra\OneDrive\Documents\GitHub\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csproj.CoreCompileInputs.cache
+C:\Users\aldra\OneDrive\Documents\GitHub\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
+C:\Users\aldra\OneDrive\Documents\GitHub\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb
