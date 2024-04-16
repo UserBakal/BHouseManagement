@@ -87,12 +87,12 @@ namespace housemanagement1.Repository
                 }
                 else
                 {
-                    return ErrorCode.Error; // Or any appropriate error code
+                    return ErrorCode.Error; 
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
+            
                 return ErrorCode.Error;
             }
         }
@@ -110,12 +110,12 @@ namespace housemanagement1.Repository
                 }
                 else
                 {
-                    return ErrorCode.Error; // Or any appropriate error code
+                    return ErrorCode.Error; 
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
+   
                 return ErrorCode.Error;
             }
         }
