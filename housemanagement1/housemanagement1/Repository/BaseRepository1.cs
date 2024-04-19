@@ -14,9 +14,14 @@ namespace housemanagement1.Repository
         private DbSet<T> _table;
         private object id;
 
+        public DbSet<T> Table()
+        {
+            return _table;
+        }
+
         public BaseRepository1()
         {
-            _db = new bhousemanagementEntities();
+            _db = new bhousemanagementEntities1();
             _table = _db.Set<T>();
         }
         public T Get(Object id)

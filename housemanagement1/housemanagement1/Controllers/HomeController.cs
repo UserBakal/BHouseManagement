@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
 using housemanagement1.Models;
-using housemanagement1.ViewModels;
+using System;
+using System.Web.Security;
+using housemanagement1.Repository;
+using System.Linq;
 
 namespace housemanagement1.Controllers
 {
@@ -35,52 +37,33 @@ namespace housemanagement1.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model)
+        public ActionResult Login(users u)
         {
-            if (ModelState.IsValid)
+            // Assuming _userRepo is properly initialized and has access to the user repository
+            var user = _userRepo.Table().FirstOrDefault(m => m.username == u.username && m.password == u.password);
+
+            if (user != null)
             {
-                string connectionString = "bhousemanagementEntities"; 
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    SqlCommand command = new SqlCommand("usp_Login", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.AddWithValue("@Username", model.Username);
-                    command.Parameters.AddWithValue("@Password", model.Password);
-
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                       
-                        while (reader.Read())
-                        {
-                            int userId = reader.GetInt32(reader.GetOrdinal("UserId"));
-                            
-                        }
-                        return RedirectToAction("Dashboard"); 
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Invalid username or password");
-                        return View(model); 
-                    }
-                }
+                FormsAuthentication.SetAuthCookie(u.username, false);
+                return RedirectToAction("Dashboard");
             }
-            return View(model);
+
+            ModelState.AddModelError("", "User does not exist or incorrect password!");
+
+            return View(u);
         }
 
 
-        public ActionResult Dashboard()
+
+
+        public ActionResult Dashboard(string username)
         {
-         
+            ViewBag.Username = username;
             return View();
         }
+
 
 
 

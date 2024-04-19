@@ -4,16 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhousemanagement System</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        h3 {
+            color: #333;
+            text-align: center;
+            background-color: #ffffff;
+  
+
+        }
+    </style>
+</head>
+<body>
+    <h3>BHOUSEMANAGEMENT</h3>
+</body>
+</html>
+
+
+
 @if(!String.IsNullOrEmpty(TempData["Msg"] as String))
 {
     <div class="alert alert-success">@TempData["Msg"]</div>
 }
-<table class="table">
+
+@*<table class="table">
     <tr>
         <th>Seq #</th>
         <th>
@@ -39,4 +62,4 @@
     i++;
 }
 
-</table>
+</table>*@

@@ -13,10 +13,10 @@ namespace housemanagement1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class bhousemanagementEntities : DbContext
+    public partial class bhousemanagementEntities1 : DbContext
     {
-        public bhousemanagementEntities()
-            : base("name=bhousemanagementEntities")
+        public bhousemanagementEntities1()
+            : base("name=bhousemanagementEntities1")
         {
         }
     

@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Rooms";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .room-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .room-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .room-details {
+            padding: 20px;
+        }
+
+        .room-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .room-description {
+            color: #666;
+        }
+
+        .room-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+        <div class="room-card">
+            <div class="room-image"></div>
+            <div class="room-details">
+                <h3 class="room-title">Room 1</h3>
+                <p class="room-description">This is a description of Room 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="room-price">$500 per month</p>
+            </div>
+        </div>
+        <div class="room-card">
+            <div class="room-image"></div>
+            <div class="room-details">
+                <h3 class="room-title">Room 2</h3>
+                <p class="room-description">This is a description of Room 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="room-price">$600 per month</p>
+            </div>
+        </div>
+        <!-- Add more room cards as needed -->
+    </div>
+</body>
+</html>
+
