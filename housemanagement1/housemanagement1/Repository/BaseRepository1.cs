@@ -21,7 +21,7 @@ namespace housemanagement1.Repository
 
         public BaseRepository1()
         {
-            _db = new bhousemanagementEntities1();
+            _db = new bhousemanagementEntities();
             _table = _db.Set<T>();
         }
         public T Get(Object id)

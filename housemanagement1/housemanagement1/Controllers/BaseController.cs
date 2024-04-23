@@ -9,12 +9,12 @@ namespace housemanagement1.Controllers
 {
     public class BaseController : Controller
     {
-        public bhousemanagementEntities1 _db;
+        public bhousemanagementEntities _db;
         public BaseRepository1<users> _userRepo;
 
         public BaseController()
         {
-            _db = new bhousemanagementEntities1();
+            _db = new bhousemanagementEntities();
             _userRepo = new BaseRepository1<users>();   
         }
 

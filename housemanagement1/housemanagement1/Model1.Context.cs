@@ -13,10 +13,10 @@ namespace housemanagement1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class bhousemanagementEntities1 : DbContext
+    public partial class bhousemanagementEntities : DbContext
     {
-        public bhousemanagementEntities1()
-            : base("name=bhousemanagementEntities1")
+        public bhousemanagementEntities()
+            : base("name=bhousemanagementEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace housemanagement1
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Reservations> Reservations { get; set; }
+        public virtual DbSet<Rooms> Rooms { get; set; }
         public virtual DbSet<users> users { get; set; }
     }
 }
