@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Reservations";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="datetime-local"],
+        select,
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Make a Reservation</h2>
+        <form action="/Home/Reserve" method="post">
+            @Html.AntiForgeryToken()
+
+            <label for="start-time">Start Time:</label>
+            <input type="datetime-local" id="start-time" name="start-time" required>
+
+            <label for="end-time">End Time:</label>
+            <input type="datetime-local" id="end-time" name="end-time" required>
+
+            <label for="room">Room:</label>
+            <select id="room" name="room" required>
+                <option value="" disabled selected>-- Select Room --</option>
+                <!-- You'll need to populate this dropdown list with available rooms -->
+                <option value="1">Room 1</option>
+                <option value="2">Room 2</option>
+                <option value="3">Room 3</option>
+            </select>
+
+            <input type="submit" value="Reserve">
+        </form>
+    </div>
+</body>
+</html>

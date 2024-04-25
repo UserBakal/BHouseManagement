@@ -7,11 +7,18 @@ using System;
 using System.Web.Security;
 using housemanagement1.Repository;
 using System.Linq;
+using housemanagement1.Contracts;
 
 namespace housemanagement1.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly BaseRepository1<Reservations> _reservationRepo;
+
+        public HomeController()
+        {
+            _reservationRepo = new BaseRepository1<Reservations>();
+        }
         // GET: Home
         public ActionResult Index()
         {
@@ -41,7 +48,7 @@ namespace housemanagement1.Controllers
         [HttpPost]
         public ActionResult Login(users u)
         {
-            // Assuming _userRepo is properly initialized and has access to the user repository
+            
             var user = _userRepo.Table().FirstOrDefault(m => m.username == u.username && m.password == u.password);
 
             if (user != null)
@@ -63,7 +70,47 @@ namespace housemanagement1.Controllers
             ViewBag.Username = username;
             return View();
         }
+        public ActionResult Reserve()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Reserve(Reservations reservation)
+        {
+            var result = _reservationRepo.Create(reservation);
+            if (result == ErrorCode.Success)
+            {
+                TempData["Msg"] = "Reservation added!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["ErrorMsg"] = "Failed to add reservation.";
+                return View(reservation);
+            }
+        }
+
+        public ActionResult Reservations()
+        {
+            var reservations = _reservationRepo.GetAll();
+            return View(reservations);
+        }
+
+        public ActionResult CancelReservation(int id)
+        {
+            var result = _reservationRepo.Delete(id);
+            if (result == ErrorCode.Success)
+            {
+                TempData["Msg"] = "Reservation canceled!";
+                return RedirectToAction("Reservations");
+            }
+            else
+            {
+                TempData["ErrorMsg"] = "Failed to cancel reservation.";
+                return RedirectToAction("Reservations");
+            }
+        }
 
 
 
