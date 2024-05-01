@@ -124,5 +124,10 @@ namespace housemanagement1.Repository
                 return ErrorCode.Error;
             }
         }
+
+        internal object GetByUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

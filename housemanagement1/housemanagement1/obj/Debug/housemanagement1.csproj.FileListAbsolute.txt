@@ -202,3 +202,153 @@ D:\dbsys\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.x
 D:\dbsys\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csprojResolveAssemblyReference.cache
 D:\dbsys\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
 D:\dbsys\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\ApplicationInsights.config
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\csc.exe
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Collections.Immutable.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Reflection.Metadata.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\vbc.exe
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe.config
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll.config
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.pdb
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.Web.Infrastructure.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.xml
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csprojResolveAssemblyReference.cache
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
+D:\bhouse\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\ApplicationInsights.config
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\csc.exe
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\vbc.exe
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll.config
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.pdb
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.xml
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csprojResolveAssemblyReference.cache
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
+C:\Users\euane.DESKTOP-T2VFUEP\OneDrive\Desktop\BHouseManagement\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\ApplicationInsights.config
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\csc.exe
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Collections.Immutable.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\System.Reflection.Metadata.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\vbc.exe
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\roslyn\VBCSCompiler.exe.config
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll.config
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\housemanagement1.pdb
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.Web.Infrastructure.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\EntityFramework.SqlServer.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.DependencyCollector.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.Web.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.AI.WindowsServer.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.ApplicationInsights.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Razor.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Deployment.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Webpages.Razor.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Helpers.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\bin\System.Web.Mvc.xml
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.csprojResolveAssemblyReference.cache
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.dll
+D:\new sql\BHouseManagement\housemanagement1\housemanagement1\obj\Debug\housemanagement1.pdb

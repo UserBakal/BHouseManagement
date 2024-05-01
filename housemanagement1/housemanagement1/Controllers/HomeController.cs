@@ -74,11 +74,59 @@ namespace housemanagement1.Controllers
         {
             return View();
         }
+        // Action to display the reservation form
+        public ActionResult Reservations()
+        {
+            var reservations = _reservationRepo.GetAll();
+            return View(reservations);
+        }
+
+
 
         [HttpPost]
-        public ActionResult Reserve(Reservations reservation)
+        public ActionResult Reserve(int roomId, DateTime startTime, DateTime endTime)
         {
+        
+            //int userId = GetCurrentUserId(); 
+
+   
+            Reservations reservation = new Reservations
+            {
+                startTime = startTime,
+                endTime = endTime,
+                status = "Pending", 
+                //userId = id,
+                roomId = roomId
+            };
+
             var result = _reservationRepo.Create(reservation);
+
+            if (result == ErrorCode.Success)
+            {
+                TempData["Msg"] = "Reservation added!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["ErrorMsg"] = "Failed to add reservation.";
+                return View("ReservationForm", reservation);
+            }
+        }
+        public ActionResult Reserve(DateTime startTime, DateTime endTime, string status, int userId, int roomId)
+        {
+            // Create a new Reservations object
+            Reservations reservation = new Reservations
+            {
+                startTime = startTime,
+                endTime = endTime,
+                status = status,
+                userId = userId,
+                roomId = roomId
+            };
+
+            // Save the reservation into the database
+            var result = _reservationRepo.Create(reservation);
+
             if (result == ErrorCode.Success)
             {
                 TempData["Msg"] = "Reservation added!";
@@ -91,26 +139,47 @@ namespace housemanagement1.Controllers
             }
         }
 
-        public ActionResult Reservations()
-        {
-            var reservations = _reservationRepo.GetAll();
-            return View(reservations);
-        }
 
-        public ActionResult CancelReservation(int id)
-        {
-            var result = _reservationRepo.Delete(id);
-            if (result == ErrorCode.Success)
-            {
-                TempData["Msg"] = "Reservation canceled!";
-                return RedirectToAction("Reservations");
-            }
-            else
-            {
-                TempData["ErrorMsg"] = "Failed to cancel reservation.";
-                return RedirectToAction("Reservations");
-            }
-        }
+
+
+
+
+        //[HttpPost]
+        //public ActionResult Reserve(Reservations reservation)
+        //{
+        //    var result = _reservationRepo.Create(reservation);
+        //    if (result == ErrorCode.Success)
+        //    {
+        //        TempData["Msg"] = "Reservation added!";
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        TempData["ErrorMsg"] = "Failed to add reservation.";
+        //        return View(reservation);
+        //    }
+        //}
+
+        //public ActionResult Reservations()
+        //{
+        //    var reservations = _reservationRepo.GetAll();
+        //    return View(reservations);
+        //}
+
+        //public ActionResult CancelReservation(int id)
+        //{
+        //    var result = _reservationRepo.Delete(id);
+        //    if (result == ErrorCode.Success)
+        //    {
+        //        TempData["Msg"] = "Reservation canceled!";
+        //        return RedirectToAction("Reservations");
+        //    }
+        //    else
+        //    {
+        //        TempData["ErrorMsg"] = "Failed to cancel reservation.";
+        //        return RedirectToAction("Reservations");
+        //    }
+        //}
 
 
 

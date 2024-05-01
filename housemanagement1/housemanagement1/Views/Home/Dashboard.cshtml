@@ -19,15 +19,23 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative; /* For positioning of arrow buttons */
+        }
+
+        .room-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
         }
 
         .room-card {
+            flex: 0 0 auto;
+            width: 300px; /* Adjust width of room cards as needed */
+            margin-right: 20px; /* Adjust margin between room cards as needed */
+            scroll-snap-align: start;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            overflow: hidden;
-            position: relative; /* Ensure proper positioning of the status */
         }
 
         .room-image {
@@ -73,41 +81,67 @@
             }
 
         .status {
-            position: absolute;
-            top: 10px;
-            right: 10px;
             background-color: #ffc107; /* Yellow color for pending status */
             color: #333;
             padding: 5px 10px;
             border-radius: 5px;
+        }
+
+        .arrow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            color: #333;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+            .arrow-button:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>@ViewBag.Title</h2>
-        <div class="room-card">
-            <div class="room-image"></div>
-            <div class="room-details">
-                <h3 class="room-title">Room 1</h3>
-                <p class="room-description">This is a description of Room 1.</p>
-                <p class="room-price">$500 per month</p>
-                <button class="reserve-button" onclick="window.location.href='@Url.Action("Reservations", "Home")'">Reserve</button>
-                <!-- Status will be displayed here -->
-                <div class="status">Pending</div>
-            </div>
+        <button class="arrow-button prev-button" onclick="scrollRooms(-350)">&#10094;</button>
+        <div class="room-slider">
+            @for (var i = 1; i <= 6; i++)
+            {
+                <div class="room-card">
+                    <div class="room-image"></div>
+                    <div class="room-details">
+                        <h3 class="room-title">Room @i</h3>
+                        <p class="room-description">This is a description of Room @i.</p>
+                        <p class="room-price">$@(400 + i * 100) per month</p>
+                        <button class="reserve-button" onclick="window.location.href='@Url.Action("Reservations", "Home")'">Reserve</button>
+                        <!-- Status will be displayed here -->
+                        <div class="status">Pending</div>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="room-card">
-            <div class="room-image"></div>
-            <div class="room-details">
-                <h3 class="room-title">Room 2</h3>
-                <p class="room-description">This is a description of Room 2.</p>
-                <p class="room-price">$600 per month</p>
-                <button class="reserve-button" onclick="window.location.href='@Url.Action("Reservations", "Home")'">Reserve</button>
-                <!-- Status will be displayed here -->
-                <div class="status">Pending</div>
-            </div>
-        </div>
+        <button class="arrow-button next-button" onclick="scrollRooms(350)">&#10095;</button>
     </div>
+
+    <script>
+        function scrollRooms(offset) {
+            const roomSlider = document.querySelector('.room-slider');
+            roomSlider.scrollLeft += offset;
+        }
+    </script>
 </body>
 </html>

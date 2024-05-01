@@ -4,38 +4,54 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Registration</h2>
+<body>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @required = true } })
-                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+    <section class="forms">
+        <div class="container">
+            <!-- logo -->
+           @*lugo pohon*@
+            <!-- //logo -->
+            <div class="forms-grid">
+
+                <!-- register -->
+                <div class="register">
+                    <span class="fas fa-user-circle"></span>
+                    <strong>Create account!</strong>
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "register-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <fieldset>
+                            <div class="form">
+                                <div class="form-row">
+                                    <span class="fas fa-user"></span>
+                                    <label class="form-label" for="Username">Username</label>
+                                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-text", @id = "Username" } })
+                                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-row">
+                                    <span class="fas fa-lock"></span>
+                                    <label class="form-label" for="Password">Password</label>
+                                    @Html.PasswordFor(model => model.password, new { @class = "form-text", @id = "Password" })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-row button-login">
+                                    <button type="submit" class="btn btn-login">Create <span class="fas fa-arrow-right"></span></button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    }
+                    <span class="create-account">Or create account using social media!</span>
+                    <div class="social-media">
+                        <a href="#facebook" class="fb"><span class="fab fa-facebook"></span></a>
+                        <a href="#twitter" class="tw"><span class="fab fa-twitter"></span></a>
+                        <a href="#pinterest" class="pi"><span class="fab fa-pinterest"></span></a>
+                    </div>
+                </div>
+                <!-- //register -->
             </div>
         </div>
+    </section>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control",@type="password", @required = true } })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-</div>
+</body>
