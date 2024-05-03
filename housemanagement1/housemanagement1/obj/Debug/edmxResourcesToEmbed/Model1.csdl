@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="bhousemanagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bhousemanagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Reservations" EntityType="bhousemanagementModel.Reservations" />
+    <EntitySet Name="Rooms" EntityType="bhousemanagementModel.Rooms" />
+    <EntitySet Name="users" EntityType="bhousemanagementModel.users" />
+    <FunctionImport Name="InsertReservation" ReturnType="Collection(Decimal)">
+      <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+      <Parameter Name="RoomId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Login" ReturnType="Collection(bhousemanagementModel.usp_Login_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
   <EntityType Name="Reservations">
     <Key>
       <PropertyRef Name="reservationId" />
@@ -28,9 +42,8 @@
     <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="bhousemanagementEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Reservations" EntityType="Self.Reservations" />
-    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
-    <EntitySet Name="users" EntityType="Self.users" />
-  </EntityContainer>
+  <ComplexType Name="usp_Login_Result">
+    <Property Type="String" Name="Result" Nullable="false" MaxLength="7" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+  </ComplexType>
 </Schema>

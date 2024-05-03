@@ -12,6 +12,8 @@ namespace housemanagement1
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class bhousemanagementEntities : DbContext
     {
@@ -28,5 +30,35 @@ namespace housemanagement1
         public virtual DbSet<Reservations> Reservations { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }
         public virtual DbSet<users> users { get; set; }
+    
+        public virtual ObjectResult<Nullable<decimal>> InsertReservation(Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<int> roomId)
+        {
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.DateTime));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.DateTime));
+    
+            var roomIdParameter = roomId.HasValue ?
+                new ObjectParameter("RoomId", roomId) :
+                new ObjectParameter("RoomId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("InsertReservation", startTimeParameter, endTimeParameter, roomIdParameter);
+        }
+    
+        public virtual ObjectResult<usp_Login_Result> usp_Login(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Login_Result>("usp_Login", usernameParameter, passwordParameter);
+        }
     }
 }

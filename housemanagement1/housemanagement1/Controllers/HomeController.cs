@@ -8,11 +8,15 @@ using System.Web.Security;
 using housemanagement1.Repository;
 using System.Linq;
 using housemanagement1.Contracts;
+using System.Data.Entity;
+using housemanagement1.Models;
 
 namespace housemanagement1.Controllers
 {
     public class HomeController : BaseController
     {
+        private bhousemanagementEntities db = new bhousemanagementEntities();
+
         private readonly BaseRepository1<Reservations> _reservationRepo;
 
         public HomeController()
@@ -70,116 +74,45 @@ namespace housemanagement1.Controllers
             ViewBag.Username = username;
             return View();
         }
-        public ActionResult Reserve()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reserve(Reservations reservation)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Save the reservation to the database using Entity Framework
+                    db.Reservations.Add(reservation);
+                    db.SaveChanges();
+
+                    // Optionally, you can redirect to a success page
+                    return RedirectToAction("ReservationSuccess");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions here
+                    ModelState.AddModelError("", "An error occurred while saving the reservation.");
+                    return View(reservation);
+                }
+            }
+            else
+            {
+                // If the model state is not valid, return to the form with validation errors
+                return View("Index", reservation);
+            }
+        }
+
+
+        public ActionResult ReservationSuccess()
         {
             return View();
         }
-        // Action to display the reservation form
-        public ActionResult Reservations()
-        {
-            var reservations = _reservationRepo.GetAll();
-            return View(reservations);
-        }
-
-
-
-        [HttpPost]
-        public ActionResult Reserve(int roomId, DateTime startTime, DateTime endTime)
-        {
-        
-            //int userId = GetCurrentUserId(); 
-
-   
-            Reservations reservation = new Reservations
-            {
-                startTime = startTime,
-                endTime = endTime,
-                status = "Pending", 
-                //userId = id,
-                roomId = roomId
-            };
-
-            var result = _reservationRepo.Create(reservation);
-
-            if (result == ErrorCode.Success)
-            {
-                TempData["Msg"] = "Reservation added!";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                TempData["ErrorMsg"] = "Failed to add reservation.";
-                return View("ReservationForm", reservation);
-            }
-        }
-        public ActionResult Reserve(DateTime startTime, DateTime endTime, string status, int userId, int roomId)
-        {
-            // Create a new Reservations object
-            Reservations reservation = new Reservations
-            {
-                startTime = startTime,
-                endTime = endTime,
-                status = status,
-                userId = userId,
-                roomId = roomId
-            };
-
-            // Save the reservation into the database
-            var result = _reservationRepo.Create(reservation);
-
-            if (result == ErrorCode.Success)
-            {
-                TempData["Msg"] = "Reservation added!";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                TempData["ErrorMsg"] = "Failed to add reservation.";
-                return View(reservation);
-            }
-        }
 
 
 
 
 
-
-        //[HttpPost]
-        //public ActionResult Reserve(Reservations reservation)
-        //{
-        //    var result = _reservationRepo.Create(reservation);
-        //    if (result == ErrorCode.Success)
-        //    {
-        //        TempData["Msg"] = "Reservation added!";
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        TempData["ErrorMsg"] = "Failed to add reservation.";
-        //        return View(reservation);
-        //    }
-        //}
-
-        //public ActionResult Reservations()
-        //{
-        //    var reservations = _reservationRepo.GetAll();
-        //    return View(reservations);
-        //}
-
-        //public ActionResult CancelReservation(int id)
-        //{
-        //    var result = _reservationRepo.Delete(id);
-        //    if (result == ErrorCode.Success)
-        //    {
-        //        TempData["Msg"] = "Reservation canceled!";
-        //        return RedirectToAction("Reservations");
-        //    }
-        //    else
-        //    {
-        //        TempData["ErrorMsg"] = "Failed to cancel reservation.";
-        //        return RedirectToAction("Reservations");
-        //    }
-        //}
 
 
 

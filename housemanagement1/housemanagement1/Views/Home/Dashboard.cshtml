@@ -19,7 +19,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative; /* For positioning of arrow buttons */
+            position: relative;
         }
 
         .room-slider {
@@ -30,8 +30,8 @@
 
         .room-card {
             flex: 0 0 auto;
-            width: 300px; /* Adjust width of room cards as needed */
-            margin-right: 20px; /* Adjust margin between room cards as needed */
+            width: 300px;
+            margin-right: 20px;
             scroll-snap-align: start;
             background-color: #fff;
             border-radius: 8px;
@@ -112,6 +112,79 @@
         .next-button {
             right: 10px;
         }
+
+        /* Reservation form styles */
+        .reservation-form {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+            .reservation-form label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .reservation-form input[type="datetime-local"] {
+                width: calc(100% - 12px); /* Adjusted for input padding and border */
+                padding: 5px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .reservation-form input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+                .reservation-form input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+
+        /* Reservation form styles */
+        .reservation-form {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+            .reservation-form label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .reservation-form input[type="datetime-local"] {
+                width: calc(100% - 12px); /* Adjusted for input padding and border */
+                padding: 5px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .reservation-form input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+                .reservation-form input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
     </style>
 </head>
 <body>
@@ -127,7 +200,18 @@
                         <h3 class="room-title">Room @i</h3>
                         <p class="room-description">This is a description of Room @i.</p>
                         <p class="room-price">$@(400 + i * 100) per month</p>
-                        <button class="reserve-button" onclick="window.location.href='@Url.Action("Reservations", "Home")'">Reserve</button>
+                        <!-- Button to toggle reservation form -->
+                        <button class="reserve-button" onclick="toggleReservationForm('reservation-form-@i')">Reserve</button>
+                        <!-- Reservation form -->
+                        <form id="reservation-form-@i" class="reservation-form" action="@Url.Action("Reserve", "Home")" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="roomId" value="@i" />
+                            <label for="start-time-@i">Start Time:</label>
+                            <input type="datetime-local" id="start-time-@i" name="start-time" required>
+                            <label for="end-time-@i">End Time:</label>
+                            <input type="datetime-local" id="end-time-@i" name="end-time" required>
+                            <input type="submit" value="Reserve">
+                        </form>
                         <!-- Status will be displayed here -->
                         <div class="status">Pending</div>
                     </div>
@@ -141,6 +225,11 @@
         function scrollRooms(offset) {
             const roomSlider = document.querySelector('.room-slider');
             roomSlider.scrollLeft += offset;
+        }
+
+        function toggleReservationForm(formId) {
+            const form = document.getElementById(formId);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>

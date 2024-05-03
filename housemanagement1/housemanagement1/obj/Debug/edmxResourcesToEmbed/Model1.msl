@@ -4,33 +4,42 @@
     <EntitySetMapping Name="Reservations">
       <EntityTypeMapping TypeName="bhousemanagementModel.Reservations">
         <MappingFragment StoreEntitySet="Reservations">
-          <ScalarProperty Name="reservationId" ColumnName="reservationId" />
-          <ScalarProperty Name="startTime" ColumnName="startTime" />
-          <ScalarProperty Name="endTime" ColumnName="endTime" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="roomId" ColumnName="roomId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="reservationId" ColumnName="reservationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rooms">
       <EntityTypeMapping TypeName="bhousemanagementModel.Rooms">
         <MappingFragment StoreEntitySet="Rooms">
-          <ScalarProperty Name="roomId" ColumnName="roomId" />
-          <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
-          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+          <ScalarProperty Name="roomId" ColumnName="roomId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="bhousemanagementModel.users">
         <MappingFragment StoreEntitySet="users">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertReservation" FunctionName="bhousemanagementModel.Store.InsertReservation" />
+    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="bhousemanagementModel.Store.usp_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bhousemanagementModel.usp_Login_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

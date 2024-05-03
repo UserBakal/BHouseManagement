@@ -63,17 +63,17 @@
         <h2>Make a Reservation</h2>
         <form action="/Home/Reserve" method="post">
 
-        @Html.AntiForgeryToken()
+            @Html.AntiForgeryToken()
 
 
-         <label for="start-time">Start Time:</label>
-        <input type="datetime-local" id="start-time" name="start-time" required>
+            <label for="start-time">Start Time:</label>
+            <input type="datetime-local" id="start-time" name="start-time" required>
 
-        <label for="end-time">End Time:</label>
-        <input type="datetime-local" id="end-time" name="end-time" required>
+            <label for="end-time">End Time:</label>
+            <input type="datetime-local" id="end-time" name="end-time" required>
 
-        <label for="room">Room:</label>
-        <select id="room" name="room" required>
+            <label for="room">Room:</label>
+            <select id="room" name="room" required>
                 <option value="" disabled selected>-- Select Room --</option>
                 <!-- You'll need to populate this dropdown list with available rooms -->
                 <option value="1">Room 1</option>
@@ -81,7 +81,7 @@
                 <option value="3">Room 3</option>
             </select>
 
-        <input type="submit" value="Reserve">
+            <input type="submit" value="Reserve">
         </form>
     </div>
 </body>
