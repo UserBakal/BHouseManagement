@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Reservation Success";
 }
 
@@ -8,11 +7,30 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <style>
+        /* Simple button style */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
 </head>
 <body>
     <h2>Reservation Successful!</h2>
     <p>Your reservation has been successfully saved.</p>
-    <!-- You can add additional content here as needed -->
+    <!-- Button linking to Dashboard -->
+    <a href="@Url.Action("Dashboard", "Home")" class="button">Continue</a>
+
 </body>
 </html>
-
