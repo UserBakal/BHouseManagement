@@ -130,7 +130,8 @@
                 font-weight: bold;
             }
 
-            .reservation-form input[type="datetime-local"] {
+            .reservation-form input[type="text"],
+            .reservation-form input[type="date"] {
                 width: calc(100% - 12px); /* Adjusted for input padding and border */
                 padding: 5px;
                 margin-bottom: 10px;
@@ -172,13 +173,12 @@
                         <form id="reservation-form-@i" class="reservation-form" action="@Url.Action("Reserve", "Home")" method="post">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="roomId" value="@i" />
-                            <label for="start-time-@i">Start Time:</label>
-                            <input type="datetime-local" id="start-time-@i" name="start-time" required>
-                            <label for="end-time-@i">End Time:</label>
-                            <input type="datetime-local" id="end-time-@i" name="end-time" required>
-                            <input type="submit" value="Reserve">
+                            <label for="user-name-@i">Your Name:</label>
+                            <input type="text" id="user-name-@i" name="user-name" required>
+                            <label for="reserve-date-@i">Date of Reservation:</label>
+                            <input type="date" id="reserve-date-@i" name="reserve-date" required>
+                            <a href="@Url.Action("ReservationSuccess", "Home")" class="nav-item nav-link">Save</a>
                         </form>
-                        <!-- Status will be displayed here -->
                         <div id="status-@i" class="status">Available</div>
                     </div>
                 </div>

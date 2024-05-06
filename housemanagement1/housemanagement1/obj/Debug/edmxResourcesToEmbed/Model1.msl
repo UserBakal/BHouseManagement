@@ -1,15 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="bhousemanagementModelStoreContainer" CdmEntityContainer="bhousemanagementEntities">
+    <FunctionImportMapping FunctionImportName="InsertReservation" FunctionName="bhousemanagementModel.Store.InsertReservation" />
+    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="bhousemanagementModel.Store.usp_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bhousemanagementModel.usp_Login_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <EntitySetMapping Name="Reservations">
       <EntityTypeMapping TypeName="bhousemanagementModel.Reservations">
         <MappingFragment StoreEntitySet="Reservations">
-          <ScalarProperty Name="roomId" ColumnName="roomId" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="endTime" ColumnName="endTime" />
-          <ScalarProperty Name="startTime" ColumnName="startTime" />
-          <ScalarProperty Name="reservationId" ColumnName="reservationId" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="ReserveDate" ColumnName="ReserveDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -32,14 +40,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="InsertReservation" FunctionName="bhousemanagementModel.Store.InsertReservation" />
-    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="bhousemanagementModel.Store.usp_Login">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="bhousemanagementModel.usp_Login_Result">
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

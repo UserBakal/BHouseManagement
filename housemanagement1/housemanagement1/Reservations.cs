@@ -14,11 +14,10 @@ namespace housemanagement1
     
     public partial class Reservations
     {
-        public int reservationId { get; set; }
-        public Nullable<System.DateTime> startTime { get; set; }
-        public Nullable<System.DateTime> endTime { get; set; }
-        public string status { get; set; }
-        public Nullable<int> userId { get; set; }
-        public Nullable<int> roomId { get; set; }
+        public int ReservationId { get; set; }
+        public int RoomId { get; set; }
+        public string UserName { get; set; }
+        public System.DateTime ReserveDate { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     }
 }

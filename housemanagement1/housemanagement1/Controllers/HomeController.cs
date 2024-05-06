@@ -74,6 +74,7 @@ namespace housemanagement1.Controllers
             ViewBag.Username = username;
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Reserve(Reservations reservation)
@@ -82,32 +83,32 @@ namespace housemanagement1.Controllers
             {
                 try
                 {
-                    // Save the reservation to the database using Entity Framework
                     db.Reservations.Add(reservation);
                     db.SaveChanges();
-
-                    // Optionally, you can redirect to a success page
+                    TempData["Msg"] = "Reservation successfully saved!";
                     return RedirectToAction("ReservationSuccess");
                 }
                 catch (Exception ex)
                 {
-                    // Handle any exceptions here
                     ModelState.AddModelError("", "An error occurred while saving the reservation.");
-                    return View(reservation);
+                    // Log the exception if needed
+                    return View(reservation); // Return to the form with errors
                 }
             }
             else
             {
-                // If the model state is not valid, return to the form with validation errors
+                // Model state is not valid, return to the form with validation errors
                 return View("Index", reservation);
             }
         }
+
 
 
         public ActionResult ReservationSuccess()
         {
             return View();
         }
+
 
 
 
