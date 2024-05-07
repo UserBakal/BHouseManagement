@@ -9,7 +9,7 @@
     <section class="forms">
         <div class="container">
             <!-- logo -->
-           @*lugo pohon*@
+            @*lugo pohon*@
             <!-- //logo -->
             <div class="forms-grid">
 
@@ -18,7 +18,7 @@
                     <span class="fas fa-user-circle"></span>
                     <strong>Create account!</strong>
 
-                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "register-form" }))
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "register-form", id = "registerForm" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -37,7 +37,7 @@
                                     @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-row button-login">
-                                    <button type="submit" class="btn btn-login">Create <span class="fas fa-arrow-right"></span></button>
+                                    <button type="button" class="btn btn-login" onclick="validateForm()">Create <span class="fas fa-arrow-right"></span></button>
                                 </div>
                             </div>
                         </fieldset>
@@ -53,5 +53,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("Username").value;
+            var password = document.getElementById("Password").value;
+            if (username.trim() === "" || password.trim() === "") {
+                alert("Username and password are required.");
+            } else {
+                document.getElementById("registerForm").submit();
+            }
+        }
+    </script>
 
 </body>

@@ -89,6 +89,10 @@
             border-radius: 5px;
         }
 
+        .unavailable {
+            background-color: #dc3545; /* Red color for unavailable status */
+        }
+
         .arrow-button {
             position: absolute;
             top: 50%;
@@ -152,7 +156,26 @@
                 .reservation-form input[type="submit"]:hover {
                     background-color: #0056b3;
                 }
+
+        /* Display reservation form when corresponding checkbox is checked */
+        .reserve-input {
+            display: none;
+        }
+
+            .reserve-input:checked ~ .reservation-form {
+                display: block;
+            }
+
+            /* Update availability status based on checkbox state */
+            .reserve-input:checked ~ .room-details .status {
+                background-color: #dc3545; /* Red color for unavailable status */
+            }
+
+                .reserve-input:checked ~ .room-details .status:after {
+                    content: "Unavailable";
+                }
     </style>
+
 </head>
 <body>
     <div class="container">
@@ -168,18 +191,21 @@
                         <p class="room-description">This is a description of Room @i.</p>
                         <p class="room-price">$@(400 + i * 100) per month</p>
                         <!-- Button to toggle reservation form -->
-                        <button class="reserve-button" onclick="toggleReservationForm('reservation-form-@i', 'status-@i')">Reserve</button>
+                        <input type="checkbox" id="reserve-input-@i" class="reserve-input" />
+                        <label for="reserve-input-@i" class="reserve-button">Reserve</label>
                         <!-- Reservation form -->
-                        <form id="reservation-form-@i" class="reservation-form" action="@Url.Action("Reserve", "Home")" method="post">
+                        <form id="reservation-form-@i" class="reservation-form"
+                              action="@Url.Action("Reserve", "Home")" method="post">
                             @Html.AntiForgeryToken()
-                            <input type="hidden" name="roomId" value="@i" />
-                            <label for="user-name-@i">Your Name:</label>
-                            <input type="text" id="user-name-@i" name="user-name" required>
+                            <input type="hidden" name="RoomId" value="@i" />
+                            <label for="username-@i">Your Username:</label>
+                            <input type="text" id="username-@i" name="Username" required>
                             <label for="reserve-date-@i">Date of Reservation:</label>
-                            <input type="date" id="reserve-date-@i" name="reserve-date" required>
-                            <a href="@Url.Action("ReservationSuccess", "Home")" class="nav-item nav-link">Save</a>
+                            <input type="date" id="reserve-date-@i" name="ReserveDate" required>
+                            <input type="submit" value="Save" class="reserve-button">
                         </form>
-                        <div id="status-@i" class="status">Available</div>
+                        <!-- Status display -->
+                        <div class="status">Available</div>
                     </div>
                 </div>
             }
@@ -188,22 +214,12 @@
     </div>
 
     <script>
-        function scrollRooms(offset) {
-            const roomSlider = document.querySelector('.room-slider');
-            roomSlider.scrollLeft += offset;
-        }
-
-        function toggleReservationForm(formId, statusId) {
-            const form = document.getElementById(formId);
-            const status = document.getElementById(statusId);
-            if (form.style.display === 'none') {
-                form.style.display = 'block';
-                status.textContent = 'Pending';
-            } else {
-                form.style.display = 'none';
-                status.textContent = 'Available';
-            }
-        }
+    function scrollRooms(offset) {
+        const roomSlider = document.querySelector('.room-slider');
+        roomSlider.scrollLeft += offset;
+    }
     </script>
+
+
 </body>
 </html>

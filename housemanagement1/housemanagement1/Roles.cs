@@ -12,13 +12,18 @@ namespace housemanagement1
     using System;
     using System.Collections.Generic;
     
-    public partial class users
+    public partial class Roles
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public Nullable<int> RoleId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Roles()
+        {
+            this.users = new HashSet<users>();
+        }
     
-        public virtual Roles Roles { get; set; }
+        public int RoleId { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<users> users { get; set; }
     }
 }

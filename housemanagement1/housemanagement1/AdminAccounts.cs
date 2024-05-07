@@ -12,13 +12,10 @@ namespace housemanagement1
     using System;
     using System.Collections.Generic;
     
-    public partial class users
+    public partial class AdminAccounts
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public Nullable<int> RoleId { get; set; }
-    
-        public virtual Roles Roles { get; set; }
+        public int AdminId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -15,9 +15,9 @@ namespace housemanagement1
     public partial class Reservations
     {
         public int ReservationId { get; set; }
-        public int RoomId { get; set; }
+        public Nullable<int> RoomId { get; set; }
         public string UserName { get; set; }
-        public System.DateTime ReserveDate { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; }
+        public Nullable<System.DateTime> ReserveDate { get; set; }
+        public string Status { get; set; }
     }
 }

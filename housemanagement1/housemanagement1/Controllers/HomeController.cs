@@ -9,6 +9,7 @@ using housemanagement1.Repository;
 using System.Linq;
 using housemanagement1.Contracts;
 using System.Data.Entity;
+using System.Web.Helpers;
 using housemanagement1.Models;
 
 namespace housemanagement1.Controllers
@@ -48,25 +49,29 @@ namespace housemanagement1.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(users u)
+        public ActionResult Login(LoginViewModel model)
         {
-            
-            var user = _userRepo.Table().FirstOrDefault(m => m.username == u.username && m.password == u.password);
+            var user = _userRepo.Table().FirstOrDefault(m => m.username == model.Username && m.password == model.Password);
 
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(u.username, false);
-                return RedirectToAction("Dashboard");
+                FormsAuthentication.SetAuthCookie(model.Username, false);
+                return RedirectToAction("Dashboard", new { username = model.Username });
+            }
+
+            // Check if the user is an admin
+            var adminAccount = db.AdminAccounts.FirstOrDefault(a => a.Username == model.Username);
+            if (adminAccount != null && Crypto.VerifyHashedPassword(adminAccount.Password, model.Password))
+            {
+                FormsAuthentication.SetAuthCookie(model.Username, false);
+                return RedirectToAction("AdminDashboard");
             }
 
             ModelState.AddModelError("", "User does not exist or incorrect password!");
 
-            return View(u);
+            return View(model);
         }
-
-
 
 
         public ActionResult Dashboard(string username)
@@ -74,7 +79,29 @@ namespace housemanagement1.Controllers
             ViewBag.Username = username;
             return View();
         }
-        [AllowAnonymous]
+
+
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminLogin(AdminLogin admin)
+        {
+            var adminAccount = db.AdminAccounts.FirstOrDefault(a => a.Username == admin.Username);
+
+            if (adminAccount != null && Crypto.VerifyHashedPassword(adminAccount.Password, admin.Password))
+            {
+                FormsAuthentication.SetAuthCookie(admin.Username, false);
+                return RedirectToAction("AdminDashboard");
+            }
+
+            ModelState.AddModelError("", "Invalid admin credentials");
+            return View(admin);
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Reserve(Reservations reservation)
@@ -83,8 +110,16 @@ namespace housemanagement1.Controllers
             {
                 try
                 {
+                    // Get the username from the form
+                    string username = reservation.UserName;
+
+                    // Assigning the username and setting status to Pending
+                    reservation.Status = "Pending";
+
+                    // Adding the reservation to the database
                     db.Reservations.Add(reservation);
                     db.SaveChanges();
+
                     TempData["Msg"] = "Reservation successfully saved!";
                     return RedirectToAction("ReservationSuccess");
                 }

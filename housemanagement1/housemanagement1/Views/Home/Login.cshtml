@@ -10,7 +10,7 @@
         <div class="container">
             <!-- logo -->
             <div class="logo">
- 
+
             </div>
             <!-- //logo -->
             <div class="forms-grid">
@@ -21,7 +21,7 @@
                     <strong>Welcome!</strong>
                     <span>Sign in to your account</span>
 
-                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-form" }))
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-form", id = "loginForm" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -45,7 +45,7 @@
                                     <a href="#" class="forgot">Forgot password?</a>
                                 </div>
                                 <div class="form-row button-login">
-                                    <button type="submit" class="btn btn-login">Login <span class="fas fa-arrow-right"></span></button>
+                                    <button type="button" class="btn btn-login" onclick="validateForm()">Login <span class="fas fa-arrow-right"></span></button>
                                 </div>
                             </div>
                         </fieldset>
@@ -55,5 +55,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("Username").value;
+            var password = document.getElementById("Password").value;
+            if (username.trim() === "" || password.trim() === "") {
+                alert("Username and password are required.");
+            } else {
+                document.getElementById("loginForm").submit();
+            }
+        }
+    </script>
 
 </body>

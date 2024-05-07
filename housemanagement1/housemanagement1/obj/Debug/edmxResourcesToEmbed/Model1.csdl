@@ -10,23 +10,45 @@
       <Parameter Name="Username" Mode="In" Type="String" />
       <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="AdminAccounts" EntityType="bhousemanagementModel.AdminAccounts" />
     <EntitySet Name="Reservations" EntityType="bhousemanagementModel.Reservations" />
+    <EntitySet Name="Roles" EntityType="bhousemanagementModel.Roles" />
     <EntitySet Name="Rooms" EntityType="bhousemanagementModel.Rooms" />
     <EntitySet Name="users" EntityType="bhousemanagementModel.users" />
+    <AssociationSet Name="FK__users__RoleId__123EB7A3" Association="bhousemanagementModel.FK__users__RoleId__123EB7A3">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="usp_Login_Result">
     <Property Type="String" Name="Result" Nullable="false" MaxLength="7" />
     <Property Type="Int32" Name="UserId" Nullable="true" />
   </ComplexType>
+  <EntityType Name="AdminAccounts">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Reservations">
     <Key>
       <PropertyRef Name="ReservationId" />
     </Key>
     <Property Name="ReservationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RoomId" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ReserveDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ReserveDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="users" Relationship="bhousemanagementModel.FK__users__RoleId__123EB7A3" FromRole="Roles" ToRole="users" />
   </EntityType>
   <EntityType Name="Rooms">
     <Key>
@@ -44,5 +66,19 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Roles" Relationship="bhousemanagementModel.FK__users__RoleId__123EB7A3" FromRole="users" ToRole="Roles" />
   </EntityType>
+  <Association Name="FK__users__RoleId__123EB7A3">
+    <End Type="bhousemanagementModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="bhousemanagementModel.users" Role="users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
