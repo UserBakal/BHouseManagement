@@ -28,6 +28,7 @@ namespace housemanagement1
         }
     
         public virtual DbSet<AdminAccounts> AdminAccounts { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Reservations> Reservations { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }

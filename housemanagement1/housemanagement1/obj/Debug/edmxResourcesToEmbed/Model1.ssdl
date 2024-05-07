@@ -8,6 +8,16 @@
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardHolderName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PaymentAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ExpiryMonth" Type="int" Nullable="false" />
+    <Property Name="PaymentDate" Type="datetime" />
+  </EntityType>
   <EntityType Name="Reservations">
     <Key>
       <PropertyRef Name="ReservationId" />
@@ -66,6 +76,7 @@
   </Function>
   <EntityContainer Name="bhousemanagementModelStoreContainer">
     <EntitySet Name="AdminAccounts" EntityType="Self.AdminAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />

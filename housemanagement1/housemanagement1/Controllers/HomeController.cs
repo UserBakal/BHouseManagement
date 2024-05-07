@@ -126,6 +126,8 @@ namespace housemanagement1.Controllers
 
 
 
+
+
         public ActionResult Details(int? id) 
         {
             if (id == null)

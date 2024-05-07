@@ -6,9 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3d1854bfcc914d63a3575d8f965a5d47" Name="Diagram1">
         <EntityTypeShape EntityType="bhousemanagementModel.AdminAccounts" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="bhousemanagementModel.Reservations" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bhousemanagementModel.Payment" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bhousemanagementModel.Reservations" Width="1.5" PointX="4.75" PointY="3.75" />
         <EntityTypeShape EntityType="bhousemanagementModel.Roles" Width="1.5" PointX="0.75" PointY="1.125" />
-        <EntityTypeShape EntityType="bhousemanagementModel.Rooms" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bhousemanagementModel.Rooms" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="bhousemanagementModel.users" Width="1.5" PointX="3" PointY="0.875" />
         <AssociationConnector Association="bhousemanagementModel.FK__users__RoleId__123EB7A3" />
       </Diagram>

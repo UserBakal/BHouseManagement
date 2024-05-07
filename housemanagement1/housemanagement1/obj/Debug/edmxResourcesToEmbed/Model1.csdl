@@ -11,6 +11,7 @@
       <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="AdminAccounts" EntityType="bhousemanagementModel.AdminAccounts" />
+    <EntitySet Name="Payment" EntityType="bhousemanagementModel.Payment" />
     <EntitySet Name="Reservations" EntityType="bhousemanagementModel.Reservations" />
     <EntitySet Name="Roles" EntityType="bhousemanagementModel.Roles" />
     <EntitySet Name="Rooms" EntityType="bhousemanagementModel.Rooms" />
@@ -31,6 +32,16 @@
     <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardHolderName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ExpiryMonth" Type="Int32" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Reservations">
     <Key>
