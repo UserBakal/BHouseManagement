@@ -10,7 +10,7 @@ using System.Linq;
 using housemanagement1.Contracts;
 using System.Data.Entity;
 using System.Web.Helpers;
-//using housemanagement1.Models;
+using housemanagement1.Models;
 
 namespace housemanagement1.Controllers
 {
@@ -24,7 +24,7 @@ namespace housemanagement1.Controllers
         {
             _reservationRepo = new BaseRepository1<Reservations>();
         }
-        // GET: Home
+
         public ActionResult Index()
         {
             List<users> userList = _userRepo.GetAll();
@@ -53,7 +53,7 @@ namespace housemanagement1.Controllers
         [HttpPost]
         public ActionResult Login(users u)
         {
-            
+
             var user = _userRepo.Table().FirstOrDefault(m => m.username == u.username && m.password == u.password);
 
             if (user != null)
@@ -84,7 +84,7 @@ namespace housemanagement1.Controllers
             {
                 try
                 {
-  
+
                     string username = reservation.UserName;
 
 
@@ -121,6 +121,43 @@ namespace housemanagement1.Controllers
 
 
 
+        //[HttpPost]
+        //public ActionResult Payment(Payment model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            // Set the PaymentDate to the current date and time
+        //            model.PaymentDate = DateTime.Now;
+
+        //            using (var db = new bhousemanagementEntities())
+        //            {
+        //                // Call the stored procedure to save payment
+        //                db.Database.ExecuteSqlCommand("EXEC SavePayment1 @CardHolderName, @PaymentAmount, @ExpiryMonth",
+        //                    new SqlParameter("@CardHolderName", model.CardHolderName),
+        //                    new SqlParameter("@PaymentAmount", model.PaymentAmount),
+        //                    new SqlParameter("@ExpiryMonth", model.ExpiryMonth)
+        //                );
+        //            }
+
+        //            TempData["Msg"] = "Payment successfully saved!";
+        //            return RedirectToAction("Dashboard");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Log the exception for debugging
+        //            Console.WriteLine(ex.Message);
+        //            ModelState.AddModelError("", "An error occurred while saving the payment.");
+        //            return View(model);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // If the model state is not valid, return the view with the model to display validation errors
+        //        return View(model);
+        //    }
+        //}
 
 
 
@@ -128,7 +165,12 @@ namespace housemanagement1.Controllers
 
 
 
-        public ActionResult Details(int? id) 
+
+
+
+
+
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -167,5 +209,7 @@ namespace housemanagement1.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }

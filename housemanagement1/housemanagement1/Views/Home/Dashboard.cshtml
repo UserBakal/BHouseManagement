@@ -27,14 +27,14 @@
         .room-slider {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            /*scroll-snap-type: x mandatory;*/
         }
 
         .room-card {
             flex: 0 0 auto;
             width: 300px;
             margin-right: 20px;
-            scroll-snap-align: start;
+            /*scroll-snap-align: start;*/
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -83,14 +83,14 @@
             }
 
         .status {
-            background-color: #28a745; /* Green color for available status */
+            background-color: #28a745; 
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
         }
 
         .unavailable {
-            background-color: #dc3545; /* Red color for unavailable status */
+            background-color: #dc3545; 
         }
 
         .arrow-button {
@@ -119,7 +119,6 @@
             right: 10px;
         }
 
-        /* Reservation form styles */
         .reservation-form {
             display: none;
             padding: 10px;
@@ -136,7 +135,7 @@
 
             .reservation-form input[type="text"],
             .reservation-form input[type="date"] {
-                width: calc(100% - 12px); /* Adjusted for input padding and border */
+                width: calc(100% - 12px); 
                 padding: 5px;
                 margin-bottom: 10px;
                 border: 1px solid #ccc;
@@ -157,7 +156,7 @@
                     background-color: #0056b3;
                 }
 
-        /* Display reservation form when corresponding checkbox is checked */
+
         .reserve-input {
             display: none;
         }
@@ -166,9 +165,9 @@
                 display: block;
             }
 
-            /* Update availability status based on checkbox state */
+
             .reserve-input:checked ~ .room-details .status {
-                background-color: #dc3545; /* Red color for unavailable status */
+                background-color: #dc3545; 
             }
 
                 .reserve-input:checked ~ .room-details .status:after {
@@ -190,10 +189,10 @@
                         <h3 class="room-title">Room @i</h3>
                         <p class="room-description">This is a description of Room @i.</p>
                         <p class="room-price">$@(400 + i * 100) per month</p>
-                        <!-- Button to toggle reservation form -->
+             
                         <input type="checkbox" id="reserve-input-@i" class="reserve-input" />
                         <label for="reserve-input-@i" class="reserve-button">Reserve</label>
-                        <!-- Reservation form -->
+                   
                         <form id="reservation-form-@i" class="reservation-form"
                               action="@Url.Action("Reserve", "Home")" method="post">
                             @Html.AntiForgeryToken()
@@ -204,7 +203,7 @@
                             <input type="date" id="reserve-date-@i" name="ReserveDate" required>
                             <input type="submit" value="Save" class="reserve-button">
                         </form>
-                        <!-- Status display -->
+               
                         <div class="status">Available</div>
                     </div>
                 </div>

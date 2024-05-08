@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <style>
-        /* Simple button style */
+    
         .button {
             display: inline-block;
             background-color: #007bff;
@@ -26,9 +26,8 @@
                 background-color: #0056b3;
             }
 
-        /* Basic form styling */
         .payment-form {
-            display: none; /* Initially hidden */
+            display: none; 
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 20px;
@@ -78,24 +77,24 @@
     <h2>Reservation Successful!</h2>
     <p>Your reservation has been successfully saved.</p>
 
-    <!-- Button to toggle payment form -->
     <button id="paymentButton" class="button">Make Payment</button>
 
-    <!-- Payment form -->
+
     <div id="paymentForm" class="payment-form">
         <h3>Payment Details</h3>
-        <form id="paymentFormSubmit">
+        <form id="paymentFormSubmit" method="post" action="@Url.Action("Payment", "Home")">
+
             <div class="form-group">
-                <label for="card_holder_name">Name</label>
-                <input type="text" id="card_holder_name" name="card_holder_name" placeholder="Enter Name" required>
+                <label for="CardHolderName">Card Holder Name</label>
+                <input type="text" id="CardHolderName" name="CardHolderName" placeholder="Enter Card Holder Name" required>
             </div>
             <div class="form-group">
-                <label for="payment_amount">Payment Amount</label>
-                <input type="number" id="payment_amount" name="payment_amount" placeholder="Enter payment amount" required>
+                <label for="PaymentAmount">Payment Amount</label>
+                <input type="number" id="PaymentAmount" name="PaymentAmount" placeholder="Enter Payment Amount" required>
             </div>
             <div class="form-group">
-                <label for="expiry_month">Expiry Month</label>
-                <select id="expiry_month" name="expiry_month" required>
+                <label for="ExpiryMonth">Expiry Month</label>
+                <select id="ExpiryMonth" name="ExpiryMonth" required>
                     <option value="">Select month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -118,7 +117,7 @@
         <div id="waitMessage">Please wait, processing payment...</div>
     </div>
 
-    <!-- Script to handle toggling of payment form and displaying wait message -->
+
     <script>
         document.getElementById("paymentButton").addEventListener("click", function() {
             var paymentForm = document.getElementById("paymentForm");
@@ -130,20 +129,19 @@
         });
 
         document.getElementById("paymentFormSubmit").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            // Show wait message
+            event.preventDefault();
+
             document.getElementById("waitMessage").style.display = "block";
-            // Simulate payment processing for 2 seconds
+
             setTimeout(function() {
-                // Hide wait message
+
                 document.getElementById("waitMessage").style.display = "none";
-                // Show success message
+
                 alert("Payment successful!");
             }, 2000);
         });
     </script>
 
-    <!-- Button linking to Dashboard -->
     <a href="@Url.Action("Dashboard", "Home")" class="button">Continue</a>
 </body>
 </html>

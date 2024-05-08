@@ -20,6 +20,11 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="users" EntitySet="users" />
     </AssociationSet>
+    <FunctionImport Name="SavePayment1">
+      <Parameter Name="CardHolderName" Mode="In" Type="String" />
+      <Parameter Name="PaymentAmount" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryMonth" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_Login_Result">
     <Property Type="String" Name="Result" Nullable="false" MaxLength="7" />
@@ -35,12 +40,12 @@
   </EntityType>
   <EntityType Name="Payment">
     <Key>
-      <PropertyRef Name="PaymentID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CardHolderName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PaymentAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="ExpiryMonth" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardHolderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentAmount" Type="Int32" />
+    <Property Name="ExpiryMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PaymentDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Reservations">

@@ -14,10 +14,10 @@ namespace housemanagement1
     
     public partial class Payment
     {
-        public int PaymentID { get; set; }
+        public int Id { get; set; }
         public string CardHolderName { get; set; }
-        public decimal PaymentAmount { get; set; }
-        public int ExpiryMonth { get; set; }
+        public Nullable<int> PaymentAmount { get; set; }
+        public string ExpiryMonth { get; set; }
         public Nullable<System.DateTime> PaymentDate { get; set; }
     }
 }

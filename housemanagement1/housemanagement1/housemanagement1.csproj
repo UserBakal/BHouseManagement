@@ -334,6 +334,7 @@
     </Compile>
     <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\login.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\reservations.cs" />
     <Compile Include="Payment.cs">
       <DependentUpon>Model1.tt</DependentUpon>

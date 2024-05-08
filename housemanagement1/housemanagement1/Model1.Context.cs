@@ -63,5 +63,22 @@ namespace housemanagement1
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Login_Result>("usp_Login", usernameParameter, passwordParameter);
         }
+    
+        public virtual int SavePayment1(string cardHolderName, Nullable<int> paymentAmount, string expiryMonth)
+        {
+            var cardHolderNameParameter = cardHolderName != null ?
+                new ObjectParameter("CardHolderName", cardHolderName) :
+                new ObjectParameter("CardHolderName", typeof(string));
+    
+            var paymentAmountParameter = paymentAmount.HasValue ?
+                new ObjectParameter("PaymentAmount", paymentAmount) :
+                new ObjectParameter("PaymentAmount", typeof(int));
+    
+            var expiryMonthParameter = expiryMonth != null ?
+                new ObjectParameter("ExpiryMonth", expiryMonth) :
+                new ObjectParameter("ExpiryMonth", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SavePayment1", cardHolderNameParameter, paymentAmountParameter, expiryMonthParameter);
+        }
     }
 }
