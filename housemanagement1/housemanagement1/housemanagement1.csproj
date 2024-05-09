@@ -314,6 +314,9 @@
     <Compile Include="Contracts\IBaseRepository.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="CustomerAccount.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -336,6 +339,9 @@
     <Compile Include="Models\login.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\reservations.cs" />
+    <Compile Include="MultiLogin1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Payment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -348,12 +354,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Rooms.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usp_Login_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -1,42 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="bhousemanagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="bhousemanagementEntities" annotation:LazyLoadingEnabled="true">
-    <FunctionImport Name="InsertReservation" ReturnType="Collection(Decimal)">
-      <Parameter Name="StartTime" Mode="In" Type="DateTime" />
-      <Parameter Name="EndTime" Mode="In" Type="DateTime" />
-      <Parameter Name="RoomId" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="usp_Login" ReturnType="Collection(bhousemanagementModel.usp_Login_Result)">
-      <Parameter Name="Username" Mode="In" Type="String" />
-      <Parameter Name="Password" Mode="In" Type="String" />
-    </FunctionImport>
-    <EntitySet Name="AdminAccounts" EntityType="bhousemanagementModel.AdminAccounts" />
-    <EntitySet Name="Payment" EntityType="bhousemanagementModel.Payment" />
-    <EntitySet Name="Reservations" EntityType="bhousemanagementModel.Reservations" />
-    <EntitySet Name="Roles" EntityType="bhousemanagementModel.Roles" />
-    <EntitySet Name="Rooms" EntityType="bhousemanagementModel.Rooms" />
-    <EntitySet Name="users" EntityType="bhousemanagementModel.users" />
-    <AssociationSet Name="FK__users__RoleId__123EB7A3" Association="bhousemanagementModel.FK__users__RoleId__123EB7A3">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="users" EntitySet="users" />
-    </AssociationSet>
-    <FunctionImport Name="SavePayment1">
-      <Parameter Name="CardHolderName" Mode="In" Type="String" />
-      <Parameter Name="PaymentAmount" Mode="In" Type="Int32" />
-      <Parameter Name="ExpiryMonth" Mode="In" Type="String" />
-    </FunctionImport>
-  </EntityContainer>
-  <ComplexType Name="usp_Login_Result">
-    <Property Type="String" Name="Result" Nullable="false" MaxLength="7" />
-    <Property Type="Int32" Name="UserId" Nullable="true" />
-  </ComplexType>
   <EntityType Name="AdminAccounts">
     <Key>
       <PropertyRef Name="AdminId" />
     </Key>
     <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
@@ -63,8 +43,8 @@
       <PropertyRef Name="RoleId" />
     </Key>
     <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="users" Relationship="bhousemanagementModel.FK__users__RoleId__123EB7A3" FromRole="Roles" ToRole="users" />
+    <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="Int32" />
   </EntityType>
   <EntityType Name="Rooms">
     <Key>
@@ -75,26 +55,36 @@
     <Property Name="Capacity" Type="Int32" />
     <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="users">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RoleId" Type="Int32" />
-    <NavigationProperty Name="Roles" Relationship="bhousemanagementModel.FK__users__RoleId__123EB7A3" FromRole="users" ToRole="Roles" />
-  </EntityType>
-  <Association Name="FK__users__RoleId__123EB7A3">
-    <End Type="bhousemanagementModel.Roles" Role="Roles" Multiplicity="0..1" />
-    <End Type="bhousemanagementModel.users" Role="users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="RoleId" />
-      </Principal>
-      <Dependent Role="users">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityContainer Name="bhousemanagementEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminAccounts" EntityType="Self.AdminAccounts" />
+    <EntitySet Name="CustomerAccount" EntityType="Self.CustomerAccount" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+    <FunctionImport Name="InsertReservation">
+      <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+      <Parameter Name="RoomId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MultiLogin1" ReturnType="Collection(bhousemanagementModel.MultiLogin1_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SavePayment1">
+      <Parameter Name="CardHolderName" Mode="In" Type="String" />
+      <Parameter Name="PaymentAmount" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryMonth" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Login">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="MultiLogin1_Result">
+    <Property Type="String" Name="AccountType" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+  </ComplexType>
 </Schema>

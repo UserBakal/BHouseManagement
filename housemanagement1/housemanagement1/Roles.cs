@@ -14,16 +14,8 @@ namespace housemanagement1
     
     public partial class Roles
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Roles()
-        {
-            this.users = new HashSet<users>();
-        }
-    
         public int RoleId { get; set; }
-        public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<users> users { get; set; }
+        public string roleName { get; set; }
+        public Nullable<int> role { get; set; }
     }
 }

@@ -1,74 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="bhousemanagementModelStoreContainer" CdmEntityContainer="bhousemanagementEntities">
-    <FunctionImportMapping FunctionImportName="InsertReservation" FunctionName="bhousemanagementModel.Store.InsertReservation" />
-    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="bhousemanagementModel.Store.usp_Login">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="bhousemanagementModel.usp_Login_Result">
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+  <EntityContainerMapping StorageEntityContainer="bhousemanagementModelStoreContainer" CdmEntityContainer="bhousemanagementEntities1">
     <EntitySetMapping Name="AdminAccounts">
       <EntityTypeMapping TypeName="bhousemanagementModel.AdminAccounts">
         <MappingFragment StoreEntitySet="AdminAccounts">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerAccount">
+      <EntityTypeMapping TypeName="bhousemanagementModel.CustomerAccount">
+        <MappingFragment StoreEntitySet="CustomerAccount">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Payment">
       <EntityTypeMapping TypeName="bhousemanagementModel.Payment">
         <MappingFragment StoreEntitySet="Payment">
-          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
-          <ScalarProperty Name="ExpiryMonth" ColumnName="ExpiryMonth" />
-          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
-          <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="ExpiryMonth" ColumnName="ExpiryMonth" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Reservations">
       <EntityTypeMapping TypeName="bhousemanagementModel.Reservations">
         <MappingFragment StoreEntitySet="Reservations">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="ReserveDate" ColumnName="ReserveDate" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
           <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ReserveDate" ColumnName="ReserveDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="bhousemanagementModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="role" ColumnName="role" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rooms">
       <EntityTypeMapping TypeName="bhousemanagementModel.Rooms">
         <MappingFragment StoreEntitySet="Rooms">
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-          <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
           <ScalarProperty Name="roomId" ColumnName="roomId" />
+          <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="bhousemanagementModel.users">
-        <MappingFragment StoreEntitySet="users">
+    <FunctionImportMapping FunctionImportName="InsertReservation" FunctionName="bhousemanagementModel.Store.InsertReservation" />
+    <FunctionImportMapping FunctionImportName="MultiLogin1" FunctionName="bhousemanagementModel.Store.MultiLogin1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bhousemanagementModel.MultiLogin1_Result">
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SavePayment1" FunctionName="bhousemanagementModel.Store.SavePayment1" />
+    <FunctionImportMapping FunctionImportName="usp_Login" FunctionName="bhousemanagementModel.Store.usp_Login" />
   </EntityContainerMapping>
 </Mapping>

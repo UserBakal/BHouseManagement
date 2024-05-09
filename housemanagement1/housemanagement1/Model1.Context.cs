@@ -15,10 +15,10 @@ namespace housemanagement1
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class bhousemanagementEntities : DbContext
+    public partial class bhousemanagementEntities1 : DbContext
     {
-        public bhousemanagementEntities()
-            : base("name=bhousemanagementEntities")
+        public bhousemanagementEntities1()
+            : base("name=bhousemanagementEntities1")
         {
         }
     
@@ -28,13 +28,13 @@ namespace housemanagement1
         }
     
         public virtual DbSet<AdminAccounts> AdminAccounts { get; set; }
+        public virtual DbSet<CustomerAccount> CustomerAccount { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Reservations> Reservations { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }
-        public virtual DbSet<users> users { get; set; }
     
-        public virtual ObjectResult<Nullable<decimal>> InsertReservation(Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<int> roomId)
+        public virtual int InsertReservation(Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<int> roomId)
         {
             var startTimeParameter = startTime.HasValue ?
                 new ObjectParameter("StartTime", startTime) :
@@ -48,10 +48,10 @@ namespace housemanagement1
                 new ObjectParameter("RoomId", roomId) :
                 new ObjectParameter("RoomId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("InsertReservation", startTimeParameter, endTimeParameter, roomIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReservation", startTimeParameter, endTimeParameter, roomIdParameter);
         }
     
-        public virtual ObjectResult<usp_Login_Result> usp_Login(string username, string password)
+        public virtual ObjectResult<MultiLogin1_Result> MultiLogin1(string username, string password)
         {
             var usernameParameter = username != null ?
                 new ObjectParameter("Username", username) :
@@ -61,7 +61,7 @@ namespace housemanagement1
                 new ObjectParameter("Password", password) :
                 new ObjectParameter("Password", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Login_Result>("usp_Login", usernameParameter, passwordParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MultiLogin1_Result>("MultiLogin1", usernameParameter, passwordParameter);
         }
     
         public virtual int SavePayment1(string cardHolderName, Nullable<int> paymentAmount, string expiryMonth)
@@ -79,6 +79,19 @@ namespace housemanagement1
                 new ObjectParameter("ExpiryMonth", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SavePayment1", cardHolderNameParameter, paymentAmountParameter, expiryMonthParameter);
+        }
+    
+        public virtual int usp_Login(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_Login", usernameParameter, passwordParameter);
         }
     }
 }

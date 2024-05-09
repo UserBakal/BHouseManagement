@@ -5,8 +5,18 @@
       <PropertyRef Name="AdminId" />
     </Key>
     <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
@@ -33,7 +43,8 @@
       <PropertyRef Name="RoleId" />
     </Key>
     <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="int" />
   </EntityType>
   <EntityType Name="Rooms">
     <Key>
@@ -44,31 +55,14 @@
     <Property Name="Capacity" Type="int" />
     <Property Name="status" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="users">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="nvarchar" MaxLength="50" />
-    <Property Name="password" Type="nvarchar" MaxLength="50" />
-    <Property Name="RoleId" Type="int" />
-  </EntityType>
-  <Association Name="FK__users__RoleId__123EB7A3">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-    <End Role="users" Type="Self.users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="RoleId" />
-      </Principal>
-      <Dependent Role="users">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Function Name="InsertReservation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="StartTime" Type="datetime" Mode="In" />
     <Parameter Name="EndTime" Type="datetime" Mode="In" />
     <Parameter Name="RoomId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MultiLogin1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
   </Function>
   <Function Name="SavePayment1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CardHolderName" Type="nvarchar" Mode="In" />
@@ -81,14 +75,10 @@
   </Function>
   <EntityContainer Name="bhousemanagementModelStoreContainer">
     <EntitySet Name="AdminAccounts" EntityType="Self.AdminAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAccount" EntityType="Self.CustomerAccount" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__users__RoleId__123EB7A3" Association="Self.FK__users__RoleId__123EB7A3">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="users" EntitySet="users" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

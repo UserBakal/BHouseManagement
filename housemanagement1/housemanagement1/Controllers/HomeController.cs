@@ -16,7 +16,7 @@ namespace housemanagement1.Controllers
 {
     public class HomeController : BaseController
     {
-        private bhousemanagementEntities db = new bhousemanagementEntities();
+        private bhousemanagementEntities1 db = new bhousemanagementEntities1();
 
         private readonly BaseRepository1<Reservations> _reservationRepo;
 
@@ -27,7 +27,7 @@ namespace housemanagement1.Controllers
 
         public ActionResult Index()
         {
-            List<users> userList = _userRepo.GetAll();
+            List<CustomerAccount> userList = _userRepo.GetAll();
             return View(userList);
         }
 
@@ -37,7 +37,7 @@ namespace housemanagement1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(users u)
+        public ActionResult Create(CustomerAccount u)
         {
             _userRepo.Create(u);
             TempData["Msg"] = $"User {u.username} added!";
@@ -51,7 +51,7 @@ namespace housemanagement1.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(users u)
+        public ActionResult Login(CustomerAccount u)
         {
 
             var user = _userRepo.Table().FirstOrDefault(m => m.username == u.username && m.password == u.password);
@@ -195,7 +195,7 @@ namespace housemanagement1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(users u)
+        public ActionResult Edit(CustomerAccount u)
         {
             _userRepo.Update(u.id, u);
             TempData["Msg"] = $"User {u.username} Updated!";
